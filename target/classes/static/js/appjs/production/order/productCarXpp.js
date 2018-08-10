@@ -1,4 +1,4 @@
-var prefix = "/production/order"
+var prefix = "/bootdo/production/order"
 $(function() {
     load();
 });

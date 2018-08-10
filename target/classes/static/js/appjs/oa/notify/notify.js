@@ -1,5 +1,4 @@
-
-var prefix = "/oa/notify"
+var prefix = "/bootdo/oa/notify"
 $(function() {
 	load();
 });

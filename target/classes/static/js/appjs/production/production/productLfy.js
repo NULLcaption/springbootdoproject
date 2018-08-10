@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2018/7/27.
  */
-var prefix = "/production/production"
+var prefix = "/bootdo/production/production"
 $(function() {
     load();
 });
@@ -165,21 +165,6 @@ function batchAddCar() {
                 content : prefix + '/batchAddCar/' + pids // iframe的url
             });
             layer.full(addPage);
-            //$.ajax({
-            //    type : 'POST',
-            //    data : {
-            //        "pids" : pids
-            //    },
-            //    url : prefix + '/batchAddCar',
-            //    success : function(r) {
-            //        if (r.code == 0) {
-            //            layer.msg(r.msg);
-            //            reLoad();
-            //        } else {
-            //            layer.msg(r.msg);
-            //        }
-            //    }
-            //});
         }, function() {
 
         }

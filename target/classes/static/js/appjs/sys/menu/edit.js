@@ -1,4 +1,4 @@
-var prefix = "/sys/menu"
+var prefix = "/bootdo/sys/menu"
 $(function() {
 	validateRule();
 

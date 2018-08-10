@@ -1,5 +1,4 @@
 $().ready(function() {
-	//loadType();
 	validateRule();
 });
 
@@ -12,7 +11,7 @@ function update() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/oa/notify/update",
+		url : "/bootdo/oa/notify/update",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {

@@ -1,4 +1,4 @@
-var prefix = "/activiti/model"
+var prefix = "/bootdo/activiti/model"
 $(function() {
 	load();
 });
@@ -75,7 +75,7 @@ function load() {
 						title:'导出xml',
 						visible:false,
 						formatter:function(value, row, index){
-							return '<a href="/activiti/model/export/'+row.id+'" target="_blank">xml</a>';
+							return '<a href="/bootdo/activiti/model/export/'+row.id+'" target="_blank">xml</a>';
 						}
 					},
 					{
@@ -108,7 +108,7 @@ function add() {
 		shadeClose : false, // 点击遮罩关闭层
 		area : [ '100%', '100%' ],
 		content : prefix + '/add',
-        closeBtn: 0, //不显示关闭按钮
+        closeBtn: 0 //不显示关闭按钮
 	});
 }
 function remove(id) {
