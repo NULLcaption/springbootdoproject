@@ -1,4 +1,4 @@
-var prefix = "/sys/user"
+var prefix = "/bootdo/sys/user"
 $(function() {
 	var deptId = '';
 	getTreeData();
@@ -186,7 +186,7 @@ function batchRemove() {
 function getTreeData() {
 	$.ajax({
 		type : "GET",
-		url : "/system/sysDept/tree",
+		url : "/bootdo/system/sysDept/tree",
 		success : function(tree) {
 			loadTree(tree);
 		}
@@ -205,14 +205,14 @@ $('#jstree').on("changed.jstree", function(e, data) {
 	if (data.selected == -1) {
 		var opt = {
 			query : {
-				deptId : '',
+				deptId : ''
 			}
 		}
 		$('#exampleTable').bootstrapTable('refresh', opt);
 	} else {
 		var opt = {
 			query : {
-				deptId : data.selected[0],
+				deptId : data.selected[0]
 			}
 		}
 		$('#exampleTable').bootstrapTable('refresh',opt);

@@ -1,5 +1,4 @@
-
-var prefix = "/system/sysDept"
+var prefix = "/boordo/system/sysDept"
 $(function() {
 	load();
 });
