@@ -10,6 +10,7 @@ import com.bootdo.common.utils.R;
 import com.bootdo.common.utils.ShiroUtils;
 import com.bootdo.system.domain.MenuDO;
 import com.bootdo.system.service.MenuService;
+import com.bootdo.system.service.RoleService;
 import io.swagger.models.auth.In;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -34,9 +35,11 @@ public class LoginController extends BaseController {
 	MenuService menuService;
 	@Autowired
 	FileService fileService;
+	@Autowired
+	RoleService roleService;
+
 	@GetMapping({ "/", "" })
 	String welcome(Model model) {
-
 		return "redirect:/blog";
 	}
 
@@ -57,6 +60,12 @@ public class LoginController extends BaseController {
 			model.addAttribute("picUrl","/bootdo/img/photo_s.jpg");
 		}
 		model.addAttribute("username", getUser().getUsername());
+
+		//根据用户的角色去不同的页面
+		String roleName = roleService.getRoleNameByUserId(this.getUserId());
+		if (roleName.equals("blog")) {
+			return "blog_main";
+		}
 		return "index_v1";
 	}
 
@@ -90,6 +99,11 @@ public class LoginController extends BaseController {
 	@GetMapping("/main")
 	String main() {
 		return "main";
+	}
+
+	@GetMapping("/blogmain")
+	String blogmain() {
+		return "blog/bContent/bContent";
 	}
 
 	@GetMapping("/main_1")

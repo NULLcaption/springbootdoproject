@@ -8,11 +8,12 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * 角色
- * @author chglee
- * @email 1992lcg@163.com
- * @date 2017-10-02 20:24:47
- */
+* @Description:    角色
+* @Author:         Cheney Master
+* @CreateDate:     2018/8/10 15:05
+* @Version:        1.0
+*/
+
 @Mapper
 public interface RoleDao {
 
@@ -29,4 +30,6 @@ public interface RoleDao {
 	int remove(Long roleId);
 	
 	int batchRemove(Long[] roleIds);
+
+	String getRoleNameByUserId(Long userId);
 }

@@ -118,4 +118,9 @@ public class RoleServiceImpl implements RoleService {
         return r;
     }
 
+    @Override
+    public String getRoleNameByUserId(Long userId) {
+        return roleMapper.getRoleNameByUserId(userId);
+    }
+
 }
