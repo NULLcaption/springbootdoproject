@@ -55,7 +55,7 @@ public class OrderController extends BaseController{
         if (prodctionDoList.size()!=0){
             for(ProdctionDo production : prodctionDoList) {
                 if (production.getProductImageUrl()!=null || "".equals(production.getProductImageUrl())) {
-                    production.setProductImageUrl("/images/" + production.getProductImageUrl().replace("/files/", ""));
+                    production.setProductImageUrl("/bootdo/images/" + production.getProductImageUrl().replace("/files/", ""));
                 }
             }
         }
@@ -73,7 +73,7 @@ public class OrderController extends BaseController{
         if (prodctionDoList.size()!=0){
             for(ProdctionDo production : prodctionDoList) {
                 if (production.getProductImageUrl()!=null || "".equals(production.getProductImageUrl())) {
-                    production.setProductImageUrl("/images/" + production.getProductImageUrl().replace("/files/", ""));
+                    production.setProductImageUrl("/bootdo/images/" + production.getProductImageUrl().replace("/files/", ""));
                 }
             }
         }
@@ -91,7 +91,7 @@ public class OrderController extends BaseController{
         if (prodctionDoList.size()!=0){
             for(ProdctionDo production : prodctionDoList) {
                 if (production.getProductImageUrl()!=null || "".equals(production.getProductImageUrl())) {
-                    production.setProductImageUrl("/images/" + production.getProductImageUrl().replace("/files/", ""));
+                    production.setProductImageUrl("/booydo/images/" + production.getProductImageUrl().replace("/files/", ""));
                 }
             }
         }
@@ -127,7 +127,7 @@ public class OrderController extends BaseController{
     public String editCarNum(@PathVariable("pid") Long pid, Model model) {
         ProdctionDo prodctionDo = orderService.getProductionCarByPid(String.valueOf(pid));
         if (StringUtils.isNotEmpty(prodctionDo.getProductImageUrl())) {
-            prodctionDo.setProductImageUrl("/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
+            prodctionDo.setProductImageUrl("/bootdo/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
         }
         model.addAttribute("prodctionDo",prodctionDo);
         return "/production/order/editCarNum";

@@ -58,7 +58,7 @@ public class ProductionController  extends BaseController {
         if (prodctionDoList.size()!=0){
             for(ProdctionDo production : prodctionDoList) {
                 if (production.getProductImageUrl()!=null || "".equals(production.getProductImageUrl())) {
-                    production.setProductImageUrl("/images/" + production.getProductImageUrl().replace("/files/", ""));
+                    production.setProductImageUrl("/bootdo/images/" + production.getProductImageUrl().replace("/files/", ""));
                 }
             }
         }
@@ -81,7 +81,7 @@ public class ProductionController  extends BaseController {
         if (prodctionDoList.size()!=0){
             for(ProdctionDo production : prodctionDoList) {
                 if (production.getProductImageUrl()!=null || "".equals(production.getProductImageUrl())) {
-                    production.setProductImageUrl("/images/" + production.getProductImageUrl().replace("/files/", ""));
+                    production.setProductImageUrl("/bootdo/images/" + production.getProductImageUrl().replace("/files/", ""));
                 }
             }
         }
@@ -104,7 +104,7 @@ public class ProductionController  extends BaseController {
         if (prodctionDoList.size()!=0){
             for(ProdctionDo production : prodctionDoList) {
                 if (production.getProductImageUrl()!=null || "".equals(production.getProductImageUrl())) {
-                    production.setProductImageUrl("/images/" + production.getProductImageUrl().replace("/files/", ""));
+                    production.setProductImageUrl("/bootdo/images/" + production.getProductImageUrl().replace("/files/", ""));
                 }
             }
         }
@@ -185,7 +185,7 @@ public class ProductionController  extends BaseController {
         if(prodctionDoList.size()!=0) {
             for(ProdctionDo prodctionDo : prodctionDoList) {
                 if (StringUtils.isNotEmpty(prodctionDo.getProductImageUrl())) {
-                    prodctionDo.setProductImageUrl("/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
+                    prodctionDo.setProductImageUrl("/bootdo/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
                 }
             }
         }
@@ -201,7 +201,7 @@ public class ProductionController  extends BaseController {
     public String productionAddCar(@PathVariable("pid") String pid,Model model) {
         ProdctionDo prodctionDo = productionService.getProductionByPid(pid);
         if (StringUtils.isNotEmpty(prodctionDo.getProductImageUrl())) {
-            prodctionDo.setProductImageUrl("/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
+            prodctionDo.setProductImageUrl("/bootdo/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
         }
         model.addAttribute("prodctionDo",prodctionDo);
         return "production/product/productAddCar";
@@ -309,7 +309,7 @@ public class ProductionController  extends BaseController {
         //产品列表
         ProdctionDo prodctionDo = productionService.getViewProductionsById(pid);
         if (StringUtils.isNotEmpty(prodctionDo.getProductImageUrl())) {
-            prodctionDo.setProductImageUrl("/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
+            prodctionDo.setProductImageUrl("/bootdo/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
         }
         //是否被收藏
         ProductCollectionDo productCollectionDo = new ProductCollectionDo();
@@ -338,7 +338,7 @@ public class ProductionController  extends BaseController {
             if(prodctionDoList.size()!=0) {
                 for(ProdctionDo prodctionDo : prodctionDoList) {
                     if (StringUtils.isNotEmpty(prodctionDo.getProductImageUrl())) {
-                        prodctionDo.setProductImageUrl("/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
+                        prodctionDo.setProductImageUrl("/bootdo/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
                     }
                 }
             }
