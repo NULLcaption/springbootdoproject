@@ -35,8 +35,12 @@ import java.util.List;
 import static org.activiti.editor.constants.ModelDataJsonConstants.*;
 
 /**
- * @author bootdo 1992lcg@163.com
- */
+* @Description:    流程模板控制类
+* @Author:         Cheney Master
+* @CreateDate:     2018/8/10 13:57
+* @Version:        1.0
+*/
+
 @RequestMapping("/activiti")
 @RestController
 public class ModelController extends BaseController{
@@ -95,7 +99,7 @@ public class ModelController extends BaseController{
         editorNode.put("stencilset", stencilSetNode);
         repositoryService.addModelEditorSource(id, editorNode.toString().getBytes("utf-8"));
         try {
-            response.sendRedirect("/modeler.html?modelId=" + id);
+            response.sendRedirect("/bootdo/modeler.html?modelId=" + id);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -139,7 +143,7 @@ public class ModelController extends BaseController{
     @GetMapping("/model/edit/{id}")
     public void edit(HttpServletResponse response, @PathVariable("id") String id) {
         try {
-            response.sendRedirect("/modeler.html?modelId=" + id);
+            response.sendRedirect("/bootdo/modeler.html?modelId=" + id);
         } catch (IOException e) {
             e.printStackTrace();
         }

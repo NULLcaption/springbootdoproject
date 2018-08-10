@@ -19,12 +19,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 审批流程测试表
- *
- * @author chglee
- * @email 1992lcg@163.com
- * @date 2017-11-25 13:33:16
- */
+* @Description:    审批流程测试表
+* @Author:         Cheney Master
+* @CreateDate:     2018/8/10 13:59
+* @Version:        1.0
+*/
 
 @Controller
 @RequestMapping("/act/salary")
