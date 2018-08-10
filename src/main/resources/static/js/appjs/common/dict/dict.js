@@ -1,31 +1,11 @@
-
-var prefix = "/common/dict"
+var prefix = "/bootdo/common/dict"
 $(function() {
-	
-	//	var config = {
-	//		'.chosen-select' : {},
-	//		'.chosen-select-deselect' : {
-	//			allow_single_deselect : true
-	//		},
-	//		'.chosen-select-no-single' : {
-	//			disable_search_threshold : 10
-	//		},
-	//		'.chosen-select-no-results' : {
-	//			no_results_text : '没有数据'
-	//		},
-	//		'.chosen-select-width' : {
-	//			width : "95%"
-	//		}
-	//	}
-	//	for (var selector in config) {
-	//		$(selector).chosen(config[selector]);
-	//	}
 	load();
 });
 function selectLoad() {
 	var html = "";
 	$.ajax({
-		url : '/common/dict/type',
+		url : prefix + '/type',
 		success : function(data) {
 			//加载数据
 			for (var i = 0; i < data.length; i++) {
@@ -40,7 +20,7 @@ function selectLoad() {
 				console.log(params.selected);
 				var opt = {
 					query : {
-						type : params.selected,
+						type : params.selected
 					}
 				}
 				$('#exampleTable').bootstrapTable('refresh', opt);

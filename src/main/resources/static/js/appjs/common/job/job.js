@@ -1,4 +1,4 @@
-var prefix = "/common/job"
+var prefix = "/bootdo/common/job"
 $(function () {
     load();
 });
