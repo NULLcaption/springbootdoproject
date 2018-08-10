@@ -27,7 +27,7 @@ function save(status) {
     $.ajax({
         cache : true,
         type : "POST",
-        url : "/production/production/batchAddCar",
+        url : "/bootdo/production/production/batchAddCar",
         data : {
             'pids' : pids
         },

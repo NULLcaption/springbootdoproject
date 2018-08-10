@@ -25,7 +25,7 @@ function save(status) {
         $.ajax({
             cache : true,
             type : "POST",
-            url : "/production/production/saveProductionCar",
+            url : "/bootdo/production/production/saveProductionCar",
             data : $('#signupForm').serialize(),// 你的formid
             async : false,
             error : function(request) {
