@@ -91,7 +91,7 @@ public class OrderController extends BaseController{
         if (prodctionDoList.size()!=0){
             for(ProdctionDo production : prodctionDoList) {
                 if (production.getProductImageUrl()!=null || "".equals(production.getProductImageUrl())) {
-                    production.setProductImageUrl("/booydo/images/" + production.getProductImageUrl().replace("/files/", ""));
+                    production.setProductImageUrl("/bootdo/images/" + production.getProductImageUrl().replace("/files/", ""));
                 }
             }
         }
