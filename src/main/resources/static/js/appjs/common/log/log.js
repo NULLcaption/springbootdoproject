@@ -1,4 +1,4 @@
-var prefix = "//common/log"
+var prefix = "/bootdo/common/log"
 $(function () {
     load();
 
