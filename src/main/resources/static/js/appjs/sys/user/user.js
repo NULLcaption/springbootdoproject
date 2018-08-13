@@ -115,7 +115,7 @@ function remove(id) {
 		btn : [ '确定', '取消' ]
 	}, function() {
 		$.ajax({
-			url : "/sys/user/remove",
+			url : "bootdo/sys/user/remove",
 			type : "post",
 			data : {
 				'id' : id
