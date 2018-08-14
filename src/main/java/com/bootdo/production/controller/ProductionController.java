@@ -176,6 +176,21 @@ public class ProductionController  extends BaseController {
     }
 
     /**
+     * 加入购物车页面
+     * @return
+     */
+    @GetMapping("/addCar/{pid}")
+    @RequiresPermissions("product:product:add")
+    public String productionAddCar(@PathVariable("pid") String pid,Model model) {
+        ProdctionDo prodctionDo = productionService.getProductionByPid(pid);
+        if (StringUtils.isNotEmpty(prodctionDo.getProductImageUrl())) {
+            prodctionDo.setProductImageUrl("/bootdo/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
+        }
+        model.addAttribute("prodctionDo",prodctionDo);
+        return "production/product/productAddCar";
+    }
+
+    /**
      * 收藏夹展示
      * @return
      */
@@ -191,20 +206,6 @@ public class ProductionController  extends BaseController {
         }
         model.addAttribute("prodctionDoList",prodctionDoList);
         return "production/product/productCollect";
-    }
-
-    /**
-     * 加入购物车页面
-     * @return
-     */
-    @GetMapping("/addCar/{pid}")
-    public String productionAddCar(@PathVariable("pid") String pid,Model model) {
-        ProdctionDo prodctionDo = productionService.getProductionByPid(pid);
-        if (StringUtils.isNotEmpty(prodctionDo.getProductImageUrl())) {
-            prodctionDo.setProductImageUrl("/bootdo/images/" + prodctionDo.getProductImageUrl().replace("/files/", ""));
-        }
-        model.addAttribute("prodctionDo",prodctionDo);
-        return "production/product/productAddCar";
     }
 
     /**
@@ -248,6 +249,7 @@ public class ProductionController  extends BaseController {
      */
     @ResponseBody
     @PostMapping("/addCollect")
+    @RequiresPermissions("product:product:remove")
     public R addCollect(String pid) {
         if (StringUtils.isNotEmpty(pid)) {
             ProductCollectionDo productCollectionDo = new ProductCollectionDo();
@@ -274,6 +276,7 @@ public class ProductionController  extends BaseController {
      */
     @ResponseBody
     @PostMapping("/batchAddCollect")
+    @RequiresPermissions("product:product:batchRemove")
     public R batchAddCollect(@RequestParam("pids[]") Long[] pids) {
         if (pids.length != 0) {
             int collectcount = 0;
@@ -331,6 +334,7 @@ public class ProductionController  extends BaseController {
      * @return
      */
     @GetMapping("/batchAddCar/{pids}")
+    @RequiresPermissions("product:product:add")
     public String batchAddProductCar (@PathVariable("pids") Long[] pids, Model model) {
         List<ProdctionDo> prodctionDoList = new ArrayList<>();
         if (pids.length != 0) {

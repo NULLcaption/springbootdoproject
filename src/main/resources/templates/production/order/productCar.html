@@ -48,21 +48,15 @@
     <div>
         <script type="text/javascript">
             var s_edit_h = 'hidden';
-            var s_remove_h = 'hidden';
             var s_resetPwd_h = 'hidden';
         </script>
     </div>
-    <div shiro:hasPermission="act:process:edit">
+    <div shiro:hasPermission="order:product:edit">
         <script type="text/javascript">
             var s_edit_h = '';
         </script>
     </div>
-    <div shiro:hasPermission="act:process:remove">
-        <script type="text/javascript">
-            var s_remove_h = '';
-        </script>
-    </div>
-    <div shiro:hasPermission="act:process:resetPwd">
+    <div shiro:hasPermission="order:product:remove">
         <script type="text/javascript">
             var s_resetPwd_h = '';
         </script>

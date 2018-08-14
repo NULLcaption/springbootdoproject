@@ -1,8 +1,6 @@
 package com.bootdo.production.controller;
 
-import com.bootdo.activiti.service.ProcessService;
 import com.bootdo.common.annotation.Log;
-import com.bootdo.common.config.BootdoConfig;
 import com.bootdo.common.controller.BaseController;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
@@ -10,7 +8,7 @@ import com.bootdo.common.utils.R;
 import com.bootdo.common.utils.StringUtils;
 import com.bootdo.production.domain.ProdctionDo;
 import com.bootdo.production.service.OrderService;
-import com.bootdo.production.service.ProductionService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +21,10 @@ import java.util.Objects;
 /**
 * @Description:    订单管理系统
  * 三个模块：购物车；我要下单；订单管理
+ * 现在在这个中需要完成：
+ * 我要下单
+ * 订单管理
+ * 在这两个模块中需要和SAP进行交互
 * @Author:         Cheney Master
 * @CreateDate:     2018/8/7 11:32
 * @Version:        1.0
@@ -32,13 +34,7 @@ import java.util.Objects;
 public class OrderController extends BaseController{
 
     @Autowired
-    private BootdoConfig bootdoConfig;
-
-    @Autowired
     private OrderService orderService;
-
-    @Autowired
-    private ProductionService productionService;
 
     @Log("购物车列表")
     @GetMapping("/productCar")
@@ -107,6 +103,7 @@ public class OrderController extends BaseController{
      */
     @ResponseBody
     @PostMapping("/deleteCar")
+    @RequiresPermissions("order:product:remove")
     public R deleteProductionCar(String pid) {
         if (StringUtils.isNotEmpty(pid)) {
             int count = orderService.deleteProductionCar(pid);
@@ -124,6 +121,7 @@ public class OrderController extends BaseController{
      * @return
      */
     @GetMapping("/editCarNum/{pid}")
+    @RequiresPermissions("order:product:edit")
     public String editCarNum(@PathVariable("pid") Long pid, Model model) {
         ProdctionDo prodctionDo = orderService.getProductionCarByPid(String.valueOf(pid));
         if (StringUtils.isNotEmpty(prodctionDo.getProductImageUrl())) {

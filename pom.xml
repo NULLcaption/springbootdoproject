@@ -214,6 +214,14 @@
             <version>1.9.2</version>
         </dependency>
 
+        <!--sap连接-->
+        <!--<dependency>-->
+            <!--<groupId>com.sap</groupId>-->
+            <!--<artifactId>jco3</artifactId>-->
+            <!--<version>3.0.8</version>-->
+        <!--</dependency>-->
+
+
         <!--war包部署需要-->
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->

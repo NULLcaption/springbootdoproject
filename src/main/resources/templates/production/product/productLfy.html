@@ -10,11 +10,11 @@
             <div class="ibox-body">
                 <div class="fixed-table-toolbar">
                     <div class="columns pull-left">
-                        <button shiro:hasPermission="blog:bContent:add" type="button" class="btn  btn-primary"
+                        <button shiro:hasPermission="product:product:add" type="button" class="btn  btn-primary"
                                 onclick="batchAddCar()">
                             <i class="fa fa-plus" aria-hidden="true"></i>加入购物车
                         </button>
-                        <button shiro:hasPermission="blog:bContent:batchRemove" type="button" class="btn  btn-danger"
+                        <button shiro:hasPermission="product:product:batchRemove" type="button" class="btn  btn-danger"
                                 onclick="batchAddCollect()">
                             <i class="fa fa-star" aria-hidden="true"></i>加入收藏夹
                         </button>
@@ -39,12 +39,12 @@
             var s_remove_h = 'hidden';
         </script>
     </div>
-    <div shiro:hasPermission="blog:bContent:edit">
+    <div shiro:hasPermission="product:product:edit">
         <script type="text/javascript">
             s_edit_h = '';
         </script>
     </div>
-    <div shiro:hasPermission="blog:bContent:remove">
+    <div shiro:hasPermission="product:product:remove">
         <script type="text/javascript">
             var s_remove_h = '';
         </script>
@@ -52,6 +52,7 @@
 </div>
 <div th:include="include :: footer"></div>
 <script type="text/javascript"
-        src="/js/appjs/production/production/productLfy.js" th:src="@{/js/appjs/production/production/productLfy.js}"></script>
+        src="/js/appjs/production/production/productLfy.js"
+        th:src="@{/js/appjs/production/production/productLfy.js}"></script>
 </body>
 </html>
