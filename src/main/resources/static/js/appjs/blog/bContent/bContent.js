@@ -184,9 +184,11 @@ function load() {
 								} ]
 					});
 }
+
 function reLoad() {
 	$('#exampleTable').bootstrapTable('refresh');
 }
+
 function add() {
 	var addPage = layer.open({
 		type : 2,

@@ -37,9 +37,11 @@ function save(status) {
 		success : function(data) {
 			if (data.code == 0) {
 				parent.layer.msg("操作成功");
+				// 获取窗口索引 关闭当前页面
+				var index = parent.layer.getFrameIndex(window.name);
+				parent.layer.close(index);
+				// 重新加载列表页面
 				parent.reLoad();
-				
-
 			} else {
 				parent.layer.alert(data.msg)
 			}
